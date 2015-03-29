@@ -1,5 +1,5 @@
 #include <pebble.h>
-#include<stdio.h>
+#include <stdio.h>
 
 Window *s_main_window;
 TextLayer *text_layer;
@@ -7,10 +7,11 @@ char binary_time[27], binary_hours[9], binary_minutes[9], binary_seconds[9];
 
 void getBin(int num, char *str)
 {
-  *(str+5) = '\0';
-  int mask = 0x10 << 1;
-  while(mask >>= 1)
+  *(str+8) = '\0';
+  int mask = 0x80 << 1;
+  while(mask >>= 1){
     *str++ = !!(mask & num) + '0';
+  }
 }
 
 static void update_time() {
@@ -22,6 +23,9 @@ static void update_time() {
       hours = hours - 12;
   }
   
+  strcpy(binary_hours, "00000000");
+  strcpy(binary_minutes, "00000000");
+  strcpy(binary_seconds, "00000000");
   getBin(hours, binary_hours);
   getBin(minutes, binary_minutes);
   getBin(seconds, binary_seconds);
@@ -36,7 +40,7 @@ static void update_time() {
 }
 
 static void main_window_load(Window *window) {
-  text_layer = text_layer_create(GRect(0, 0, 144, 168));
+  text_layer = text_layer_create(GRect(0, 15, 144, 90));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlack);
   text_layer_set_text(text_layer, "00000000\n00000000\n00000000");
