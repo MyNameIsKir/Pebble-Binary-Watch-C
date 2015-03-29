@@ -41,8 +41,8 @@ static void update_time() {
 
 static void main_window_load(Window *window) {
   text_layer = text_layer_create(GRect(0, 15, 144, 90));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlack);
+  text_layer_set_background_color(text_layer, GColorBlack);
+  text_layer_set_text_color(text_layer, GColorClear);
   text_layer_set_text(text_layer, "00000000\n00000000\n00000000");
 
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
@@ -61,6 +61,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
 static void handle_init(void) {
   s_main_window = window_create();
+  window_set_background_color(s_main_window, GColorBlack);
   
   window_set_window_handlers(s_main_window, (WindowHandlers) {
     .load = main_window_load,
