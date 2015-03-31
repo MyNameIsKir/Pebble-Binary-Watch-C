@@ -67,7 +67,7 @@ static void update_date(){
 //Generate the main window
 static void main_window_load(Window *window) {
   //Generate the text layer that will display the binary time
-  text_layer = text_layer_create(GRect(0, 20, 144, 90));
+  text_layer = text_layer_create(GRect(0, 15, 144, 90));
   text_layer_set_background_color(text_layer, GColorBlack);
   text_layer_set_text_color(text_layer, GColorClear);
   text_layer_set_text(text_layer, "00000000\n00000000\n00000000");
@@ -78,11 +78,11 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   
   //Generate the date layer that will display the date
-  date_layer = text_layer_create(GRect(0, 135, 144, 35));
+  date_layer = text_layer_create(GRect(0, 125, 144, 45));
   text_layer_set_background_color(date_layer, GColorWhite);
   text_layer_set_text_color(date_layer, GColorBlack);
   text_layer_set_text(date_layer, "Xxxxxxxxx\n00/00/00");
-  text_layer_set_font(date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
+  text_layer_set_font(date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   text_layer_set_text_alignment(date_layer, GTextAlignmentCenter);
   
   //Add the date layer to the window
