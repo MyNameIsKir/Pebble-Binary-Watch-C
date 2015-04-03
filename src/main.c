@@ -11,9 +11,8 @@ void getBin(int num, char *str)
 {
   *(str+8) = '\0';
   int mask = 0x80 << 1;
-  while(mask >>= 1){
+  while(mask >>= 1)
     *str++ = !!(mask & num) + '0';
-  }
 }
 
 //Update the time and print it to the screen
@@ -25,9 +24,8 @@ static void update_time() {
 
   //If needed, convert the hours to reflect a 12 hour clock. AM/PM is not displayed
   //  on this watchface at this time
-  if(clock_is_24h_style() == false && hours > 12) {
+  if(clock_is_24h_style() == false && hours > 12)
       hours = hours - 12;
-  }
   
   //Use the decimal times to reassign the global binary time variables
   getBin(hours, binary_hours);
@@ -103,6 +101,9 @@ static void second_tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
 //Initialize objects and processes
 static void handle_init(void) {
+  //Run the time updater every second
+  tick_timer_service_subscribe(SECOND_UNIT, second_tick_handler);
+  
   //Generate the main window
   s_main_window = window_create();
   window_set_background_color(s_main_window, GColorBlack);
@@ -111,9 +112,6 @@ static void handle_init(void) {
     .unload = main_window_unload
   });
   window_stack_push(s_main_window, true);
-  
-  //Run the time updater every second
-  tick_timer_service_subscribe(SECOND_UNIT, second_tick_handler);
 }
 
 //Deinitialize everything
