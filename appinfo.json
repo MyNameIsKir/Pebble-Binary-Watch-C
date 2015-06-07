@@ -9,10 +9,13 @@
     "resources": {
         "media": []
     },
-    "sdkVersion": "2",
+    "sdkVersion": "3",
     "shortName": "Binary Watch",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
     "uuid": "041063e2-c135-4d63-9fe2-97c56947f52c",
-    "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
         "watchface": true
