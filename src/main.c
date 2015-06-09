@@ -68,7 +68,7 @@ static void main_window_load(Window *window) {
   text_layer = text_layer_create(GRect(0, 15, 144, 90));
   text_layer_set_background_color(text_layer, GColorBlack);
   text_layer_set_text_color(text_layer, GColorWhite);
-  text_layer_set_text(text_layer, "00000000\n00000000\n00000000");
+  update_time();
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
 
@@ -79,7 +79,7 @@ static void main_window_load(Window *window) {
   date_layer = text_layer_create(GRect(0, 125, 144, 45));
   text_layer_set_background_color(date_layer, GColorWhite);
   text_layer_set_text_color(date_layer, GColorBlack);
-  text_layer_set_text(date_layer, "Xxxxxxxxx\n00/00/00");
+  update_date();
   text_layer_set_font(date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   text_layer_set_text_alignment(date_layer, GTextAlignmentCenter);
   

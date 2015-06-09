@@ -3,7 +3,7 @@
     "capabilities": [
         ""
     ],
-    "companyName": "kirstinjarchow@gmail.com",
+    "companyName": "Kirstin 'Kir' Jarchow",
     "longName": "Binary Watch",
     "projectType": "native",
     "resources": {
@@ -16,7 +16,7 @@
         "basalt"
     ],
     "uuid": "041063e2-c135-4d63-9fe2-97c56947f52c",
-    "versionLabel": "1.0",
+    "versionLabel": "1.3",
     "watchapp": {
         "watchface": true
     }
